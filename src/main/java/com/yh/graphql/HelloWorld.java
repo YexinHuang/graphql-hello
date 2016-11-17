@@ -15,7 +15,7 @@ import static graphql.schema.GraphQLObjectType.newObject;
 public class HelloWorld {
     private static final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
-    public static void main(String[] args) {
+    public void sayHello() {
 
         GraphQLObjectType queryType = newObject()
                 .name("helloWorldQuery")
@@ -30,7 +30,7 @@ public class HelloWorld {
                 .build();
         Map<String, Object> result = (Map<String, Object>) new GraphQL(schema).execute("{hello}").getData();
 
-        System.out.println(result);
-        logger.info("result={}", result);
+        logger.debug("result={}", result);
+
     }
 }
